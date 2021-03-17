@@ -8,8 +8,8 @@ import 'read_cached_data.dart';
 void main() => runApp(
     MaterialApp(debugShowCheckedModeBanner: false, home: new FootballApp()));
 
-const String wc_uri =
-    "https://raw.githubusercontent.com/openfootball/world-cup.json/master/2018/worldcup.json";
+const String wc_uri = "raw.githubusercontent.com";
+const String wc_path = "/openfootball/world-cup.json/master/2018/worldcup.json";
 
 class FootballApp extends StatefulWidget {
   @override
@@ -39,7 +39,7 @@ class FootballAppState extends State<FootballApp> {
         ),
       ];
     });
-    var response = await readCachedData(name: 'football.json', uri: wc_uri);
+    var response = await readCachedData(name: 'football.json', uri: wc_uri, path: wc_path);
     setState(() {
       _gamesList = <Widget>[];
     });
